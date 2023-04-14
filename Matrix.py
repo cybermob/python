@@ -2,9 +2,9 @@ def matrix(a,b):
     a1,m1 = [],[]
     for i in range(a):
         print("Enter how many rows are there in "+chr(65+i)+" :")
-        x1 = int(input())
+        x1 = inp()
         print("Enter how many columns are there in "+chr(65+i)+" :")
-        x2 = int(input())
+        x2 = inp()
         a1 += [[x1,x2]]
     b2 = (b == "+") or (b == "-")
     if b2:
@@ -30,32 +30,41 @@ def add_sub(a1,b):
     for i in a1:
         n = 0
         d1 = []
-        for j in range(i[1]):
+        for j in range(int(i[1])):
             c1 = []
-            for k in range(i[0]):
+            for k in range(int(i[0])):
                 n += 1
                 print("Enter the value of "+chr(65+m)+str(n))
-                inp = input()
-                inp1 = inp.isdigit()
-                while inp1:
-                    c1 +=[float(inp)]
-                    inp1 = False                
+                inp1 = inp()
+                # c1 +=[float(inp1)]
+                c1 +=[inp1]               
             d1 += [c1]
         f1 += [d1]
         m += 1
     return f1
 
-
-# def multi(a1,b):
+def inp():
+    condition = True
+    while condition:
+        numb_input = input()
+        if numb_input.isdigit():
+            return int(numb_input)
+            a = False
+        else:
+            print("Invalid input")
+            print("Please enter your input again:")
 
 print("Enter matricess:")
-a = int(input())
-print("Enter the operating sign :")
-b = input()
-b1 = (b == "+") or (b == "-") or (b == "*")
-
-if (1<a<3) and b1:
-    x = matrix(a,b)
+a,x = input(),""
+if a.isdigit():
+    print("Enter the operating sign :")
+    b = input()
+    b1 = (b == "+") or (b == "-") or (b == "*")
+    if (1<int(a)<3) and b1:
+        a = int(a)
+        x = matrix(a,b)
+    else:
+        print("Wrong inputs")
 else:
     print("Wrong inputs")
 print(x)
