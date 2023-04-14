@@ -30,9 +30,9 @@ def add_sub(a1,b):
     for i in a1:
         n = 0
         d1 = []
-        for j in range(int(i[1])):
+        for j in range(int(i[0])):
             c1 = []
-            for k in range(int(i[0])):
+            for k in range(int(i[1])):
                 n += 1
                 print("Enter the value of "+chr(65+m)+str(n))
                 inp1 = inp()
