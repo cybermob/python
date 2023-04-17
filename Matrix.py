@@ -5,7 +5,7 @@ def matrix(a,b):
         x1 = inp()
         print("Enter how many columns are there in "+chr(65+i)+" :")
         x2 = inp()
-        a1 += [[x1,x2]]
+        a1 += [[int(x1),int(x2)]]
     b2 = (b == "+") or (b == "-")
     if b2:
         if (a1[0]==a1[1]):
@@ -28,8 +28,7 @@ def matrix(a,b):
 def add_sub(a1,b):
     f1,m = [],0
     for i in a1:
-        n = 0
-        d1 = []
+        n,d1 = 0,[]
         for j in range(int(i[0])):
             c1 = []
             for k in range(int(i[1])):
@@ -48,14 +47,15 @@ def inp():
     while condition:
         numb_input = input()
         if numb_input.isdigit():
-            return int(numb_input)
+            return numb_input
             a = False
         else:
             print("Invalid input")
             print("Please enter your input again:")
 
+
 print("Enter matricess:")
-a,x = input(),""
+a = inp()
 if a.isdigit():
     print("Enter the operating sign :")
     b = input()
@@ -65,8 +65,10 @@ if a.isdigit():
         x = matrix(a,b)
     else:
         print("Wrong inputs")
+        
 else:
     print("Wrong inputs")
+
 print(x)
 print("press enter to close.")
 input()
